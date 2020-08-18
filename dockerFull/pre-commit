@@ -1,0 +1,27 @@
+#!/bin/bash
+
+autopep=$(autopep8 -dr --ignore E701,E127,E126 ./src)
+
+if [[ -z $autopep ]]
+then
+	echo "> PEP8 passed !"
+else
+	echo "> PEP8 DID NOT pass !"
+	echo "$autopep" | colordiff
+	exit 1
+fi
+
+$(python3 -m coverage run --source=./src -m unittest discover ./src)
+if [[ $? = 0 ]]
+then
+    echo "> Tests passed"
+else
+    echo "> Tests DID NOT pass"
+    exit 1
+fi
+
+# shellcheck disable=SC2140
+python3 -m coverage report --skip-covered --skip-empty --omit="*/celery.py","*_db_cli.py","src/eval/*","src/plot/*","src/tools/*"
+
+echo "Ready to commit !"
+exit 0

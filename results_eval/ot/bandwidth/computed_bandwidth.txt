@@ -1,0 +1,7 @@
+Based on round 2, 100 OTs @ 6000Kbit/s
+
+sent = 1344880 Byte = 1.34MB
+received = 1679072512 Byte = 1.68GB
+total = 1680417392 Byte = 1.68GB
+total_bit = 13443339136 Bit = 13443339.1 Kbit
+send_time = 13443339.1 Kbit / 6000 Kbit/s = 2240.5s = 37min

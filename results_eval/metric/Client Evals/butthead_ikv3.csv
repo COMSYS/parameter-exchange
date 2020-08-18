@@ -1,0 +1,22 @@
+------------------------HEADER------------------------
+EVAL: Metric Eval
+Metric: RelativeOffsetIterator
+Metric Args: [(3,)]
+Positive Only: False
+Data source: Random Data
+Record Rounding: [[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]]
+Record ID Length: 21
+Record Total Length: 28
+Rounds: 10
+ROUND;METRIC;OFFSET;POS_ONLY;REC_LEN;REC_ID_LEN;REC_ROUNDING;#CANDIDATES
+----------------------END-HEADER----------------------
+0;RelativeOffsetIterator;3;False;28;21;2;2548039680;
+1;RelativeOffsetIterator;3;False;28;21;2;2548039680;
+2;RelativeOffsetIterator;3;False;28;21;2;2548039680;
+3;RelativeOffsetIterator;3;False;28;21;2;2548039680;
+4;RelativeOffsetIterator;3;False;28;21;2;2548039680;
+5;RelativeOffsetIterator;3;False;28;21;2;2548039680;
+6;RelativeOffsetIterator;3;False;28;21;2;2548039680;
+7;RelativeOffsetIterator;3;False;28;21;2;2548039680;
+8;RelativeOffsetIterator;3;False;28;21;2;2548039680;
+9;RelativeOffsetIterator;3;False;28;21;2;2548039680;

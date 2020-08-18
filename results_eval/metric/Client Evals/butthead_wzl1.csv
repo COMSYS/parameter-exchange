@@ -1,0 +1,22 @@
+------------------------HEADER------------------------
+EVAL: Metric Eval
+Metric: VariableOffsetIterator
+Metric Args: [([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, 0], True)]
+Positive Only: False
+Data source: Random Data
+Record Rounding: [[0, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 3, 3, 3, 0, 0, 3]]
+Record ID Length: 17
+Record Total Length: 19
+Rounds: 10
+ROUND;METRIC;OFFSET;POS_ONLY;REC_LEN;REC_ID_LEN;REC_ROUNDING;#CANDIDATES
+----------------------END-HEADER----------------------
+0;VariableOffsetIterator;([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, 0], True);False;19;17;0;11;
+1;VariableOffsetIterator;([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, 0], True);False;19;17;0;11;
+2;VariableOffsetIterator;([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, 0], True);False;19;17;0;11;
+3;VariableOffsetIterator;([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, 0], True);False;19;17;0;11;
+4;VariableOffsetIterator;([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, 0], True);False;19;17;0;11;
+5;VariableOffsetIterator;([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, 0], True);False;19;17;0;11;
+6;VariableOffsetIterator;([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, 0], True);False;19;17;0;11;
+7;VariableOffsetIterator;([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, 0], True);False;19;17;0;11;
+8;VariableOffsetIterator;([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, 0], True);False;19;17;0;11;
+9;VariableOffsetIterator;([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 0, 0], True);False;19;17;0;11;

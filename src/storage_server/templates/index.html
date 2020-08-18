@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}Status Check{% endblock %}</h2>
+{% endblock %}
+
+{% block content %}
+     <p>Storage Server <font color="green">running</font>.</p>
+     <p>
+         Redis is {% if g.redis_online%}
+                    <font color="green">running</font>.
+                 {% else %}
+                    <font color="red">offline</font>.
+                 {% endif %}
+     </p>
+     <p>
+         Celery is {% if g.celery_online%}
+                        <font color="green">running</font>.
+                   {% else %}
+                        <font color="red">offline</font>.
+                   {% endif %}
+     </p>
+{% endblock %}

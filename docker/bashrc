@@ -1,0 +1,28 @@
+# Prompt style
+export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+
+# Enable colors
+export CLICOLOR=1
+
+# Colors for ls
+export LSCOLORS=ExFxBxDxCxegedabagacad
+
+# Aliases
+alias unittest='python3 -m coverage run -m unittest discover'
+alias report='python3 -m coverage report --skip-covered --skip-empty --include=/master/src'
+alias p3='python3'
+alias getblock='/Users/erik/bitcoin-bootstrapping/scripts/getblock.sh'
+alias getblockcount='/Users/erik/bitcoin-bootstrapping/bitcoin-cli.sh getblockcount'
+alias gettx='/Users/erik/bitcoin-bootstrapping/bitcoin-cli.sh getrawtransaction'
+alias getlastblock='/Users/erik/bitcoin-bootstrapping/bitcoin-cli.sh getblockcount |xargs ./bitcoin-cli.sh getblockhash | xargs ./bitcoin-cli.sh getblock'
+alias bb='/Users/erik/bitcoin-bootstrapping/bitcoin-cli.sh'
+alias pip3='python3 -m pip'
+alias pip='python3 -m pip'
+alias gits='git status'
+alias gitc='git commit'
+alias gita='git add .'
+alias gitp='git push'
+
+# Alias for ls
+alias ls='ls -GFh'
+alias lsl='ls -GFhal'

@@ -1,0 +1,102 @@
+------------------------HEADER------------------------
+EVAL: Metric Eval
+Metric: RelativeOffsetIterator
+Metric Args: [(10,)]
+Positive Only: False
+Data source: Random Data
+Record Rounding: [[1, 3, 3, 3, 3, 3, 3, 3, 3, 3], [2, 3, 3, 3, 3, 3, 3, 3, 3, 3], [3, 3, 3, 3, 3, 3, 3, 3, 3, 3], [4, 3, 3, 3, 3, 3, 3, 3, 3, 3], [5, 3, 3, 3, 3, 3, 3, 3, 3, 3], [6, 3, 3, 3, 3, 3, 3, 3, 3, 3], [7, 3, 3, 3, 3, 3, 3, 3, 3, 3], [8, 3, 3, 3, 3, 3, 3, 3, 3, 3], [9, 3, 3, 3, 3, 3, 3, 3, 3, 3]]
+Record ID Length: 10
+Record Total Length: 100
+Rounds: 10
+ROUND;METRIC;OFFSET;POS_ONLY;REC_LEN;REC_ID_LEN;REC_ROUNDING;#CANDIDATES
+----------------------END-HEADER----------------------
+0;RelativeOffsetIterator;10;False;100;10;1;5116073848773001182;
+0;RelativeOffsetIterator;10;False;100;10;2;30696443092638007092;
+0;RelativeOffsetIterator;10;False;100;10;3;283942098606901565601;
+0;RelativeOffsetIterator;10;False;100;10;4;2816398653749537150691;
+0;RelativeOffsetIterator;10;False;100;10;5;28140964205175893001591;
+0;RelativeOffsetIterator;10;False;100;10;6;281386619719439451510591;
+0;RelativeOffsetIterator;10;False;100;10;7;2813843174862075036600591;
+0;RelativeOffsetIterator;10;False;100;10;8;28138408726288430887500591;
+0;RelativeOffsetIterator;10;False;100;10;9;281384064240551989396500591;
+1;RelativeOffsetIterator;10;False;100;10;1;5116073848773001182;
+1;RelativeOffsetIterator;10;False;100;10;2;30696443092638007092;
+1;RelativeOffsetIterator;10;False;100;10;3;283942098606901565601;
+1;RelativeOffsetIterator;10;False;100;10;4;2816398653749537150691;
+1;RelativeOffsetIterator;10;False;100;10;5;28140964205175893001591;
+1;RelativeOffsetIterator;10;False;100;10;6;281386619719439451510591;
+1;RelativeOffsetIterator;10;False;100;10;7;2813843174862075036600591;
+1;RelativeOffsetIterator;10;False;100;10;8;28138408726288430887500591;
+1;RelativeOffsetIterator;10;False;100;10;9;281384064240551989396500591;
+2;RelativeOffsetIterator;10;False;100;10;1;5116073848773001182;
+2;RelativeOffsetIterator;10;False;100;10;2;30696443092638007092;
+2;RelativeOffsetIterator;10;False;100;10;3;283942098606901565601;
+2;RelativeOffsetIterator;10;False;100;10;4;2816398653749537150691;
+2;RelativeOffsetIterator;10;False;100;10;5;28140964205175893001591;
+2;RelativeOffsetIterator;10;False;100;10;6;281386619719439451510591;
+2;RelativeOffsetIterator;10;False;100;10;7;2813843174862075036600591;
+2;RelativeOffsetIterator;10;False;100;10;8;28138408726288430887500591;
+2;RelativeOffsetIterator;10;False;100;10;9;281384064240551989396500591;
+3;RelativeOffsetIterator;10;False;100;10;1;5116073848773001182;
+3;RelativeOffsetIterator;10;False;100;10;2;30696443092638007092;
+3;RelativeOffsetIterator;10;False;100;10;3;283942098606901565601;
+3;RelativeOffsetIterator;10;False;100;10;4;2816398653749537150691;
+3;RelativeOffsetIterator;10;False;100;10;5;28140964205175893001591;
+3;RelativeOffsetIterator;10;False;100;10;6;281386619719439451510591;
+3;RelativeOffsetIterator;10;False;100;10;7;2813843174862075036600591;
+3;RelativeOffsetIterator;10;False;100;10;8;28138408726288430887500591;
+3;RelativeOffsetIterator;10;False;100;10;9;281384064240551989396500591;
+4;RelativeOffsetIterator;10;False;100;10;1;5116073848773001182;
+4;RelativeOffsetIterator;10;False;100;10;2;30696443092638007092;
+4;RelativeOffsetIterator;10;False;100;10;3;283942098606901565601;
+4;RelativeOffsetIterator;10;False;100;10;4;2816398653749537150691;
+4;RelativeOffsetIterator;10;False;100;10;5;28140964205175893001591;
+4;RelativeOffsetIterator;10;False;100;10;6;281386619719439451510591;
+4;RelativeOffsetIterator;10;False;100;10;7;2813843174862075036600591;
+4;RelativeOffsetIterator;10;False;100;10;8;28138408726288430887500591;
+4;RelativeOffsetIterator;10;False;100;10;9;281384064240551989396500591;
+5;RelativeOffsetIterator;10;False;100;10;1;5116073848773001182;
+5;RelativeOffsetIterator;10;False;100;10;2;30696443092638007092;
+5;RelativeOffsetIterator;10;False;100;10;3;283942098606901565601;
+5;RelativeOffsetIterator;10;False;100;10;4;2816398653749537150691;
+5;RelativeOffsetIterator;10;False;100;10;5;28140964205175893001591;
+5;RelativeOffsetIterator;10;False;100;10;6;281386619719439451510591;
+5;RelativeOffsetIterator;10;False;100;10;7;2813843174862075036600591;
+5;RelativeOffsetIterator;10;False;100;10;8;28138408726288430887500591;
+5;RelativeOffsetIterator;10;False;100;10;9;281384064240551989396500591;
+6;RelativeOffsetIterator;10;False;100;10;1;5116073848773001182;
+6;RelativeOffsetIterator;10;False;100;10;2;30696443092638007092;
+6;RelativeOffsetIterator;10;False;100;10;3;283942098606901565601;
+6;RelativeOffsetIterator;10;False;100;10;4;2816398653749537150691;
+6;RelativeOffsetIterator;10;False;100;10;5;28140964205175893001591;
+6;RelativeOffsetIterator;10;False;100;10;6;281386619719439451510591;
+6;RelativeOffsetIterator;10;False;100;10;7;2813843174862075036600591;
+6;RelativeOffsetIterator;10;False;100;10;8;28138408726288430887500591;
+6;RelativeOffsetIterator;10;False;100;10;9;281384064240551989396500591;
+7;RelativeOffsetIterator;10;False;100;10;1;5116073848773001182;
+7;RelativeOffsetIterator;10;False;100;10;2;30696443092638007092;
+7;RelativeOffsetIterator;10;False;100;10;3;283942098606901565601;
+7;RelativeOffsetIterator;10;False;100;10;4;2816398653749537150691;
+7;RelativeOffsetIterator;10;False;100;10;5;28140964205175893001591;
+7;RelativeOffsetIterator;10;False;100;10;6;281386619719439451510591;
+7;RelativeOffsetIterator;10;False;100;10;7;2813843174862075036600591;
+7;RelativeOffsetIterator;10;False;100;10;8;28138408726288430887500591;
+7;RelativeOffsetIterator;10;False;100;10;9;281384064240551989396500591;
+8;RelativeOffsetIterator;10;False;100;10;1;5116073848773001182;
+8;RelativeOffsetIterator;10;False;100;10;2;30696443092638007092;
+8;RelativeOffsetIterator;10;False;100;10;3;283942098606901565601;
+8;RelativeOffsetIterator;10;False;100;10;4;2816398653749537150691;
+8;RelativeOffsetIterator;10;False;100;10;5;28140964205175893001591;
+8;RelativeOffsetIterator;10;False;100;10;6;281386619719439451510591;
+8;RelativeOffsetIterator;10;False;100;10;7;2813843174862075036600591;
+8;RelativeOffsetIterator;10;False;100;10;8;28138408726288430887500591;
+8;RelativeOffsetIterator;10;False;100;10;9;281384064240551989396500591;
+9;RelativeOffsetIterator;10;False;100;10;1;5116073848773001182;
+9;RelativeOffsetIterator;10;False;100;10;2;30696443092638007092;
+9;RelativeOffsetIterator;10;False;100;10;3;283942098606901565601;
+9;RelativeOffsetIterator;10;False;100;10;4;2816398653749537150691;
+9;RelativeOffsetIterator;10;False;100;10;5;28140964205175893001591;
+9;RelativeOffsetIterator;10;False;100;10;6;281386619719439451510591;
+9;RelativeOffsetIterator;10;False;100;10;7;2813843174862075036600591;
+9;RelativeOffsetIterator;10;False;100;10;8;28138408726288430887500591;
+9;RelativeOffsetIterator;10;False;100;10;9;281384064240551989396500591;

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}Job Status{% endblock %}</h2>
+{% endblock %}
+
+{% block content %}
+     <table style="text-align: left;">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Start Time</th>
+            <th>Error</th>
+            <th>Kill</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in g.tasks %}
+            <tr>
+                <td><a href="{{ row['task_url'] }}">{{ row['id'] }}</a></td>
+                <td>{{ row['type'] }}</td>
+                <td>{{ row['status'] }}</td>
+                <td>{{ row['time'] }}</td>
+                <td>{{ row['error'] }}</td>
+                <td>
+                    {% if row['status'] == 'STARTED' %}
+                            <a href="{{ row['kill_url'] }}">Kill</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+     </table>
+{% endblock %}

@@ -1,0 +1,9 @@
+[submodule "libraries/libOTe"]
+	path = libraries/libOTe
+	url = https://github.com/osu-crypto/libOTe.git
+[submodule "libraries/libPSI"]
+	path = libraries/libPSI
+	url = https://github.com/osu-crypto/libPSI.git
+[submodule "docker/wolfssl"]
+	path = docker/wolfssl
+	url = https://github.com/wolfSSL/wolfssl.git

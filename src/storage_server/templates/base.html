@@ -1,0 +1,29 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} - Storage Server</title>
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+    <h1>Storage Server</h1>
+    <ul>
+        <li style="border-right: 1px solid #bbb;"><a href="/">Main</a></li>
+        <li><span>Client:</span></li>
+        <li><a href="/client/gen_token">Gen. Token</a></li>
+        <li><a href="/client/bloom">Bloom</a></li>
+        <li><a href="/client/psi">PSI</a></li>
+        <li style="border-right: 1px solid #bbb;"><a href="/client/status">Status</a></li>
+        <li><span>Provider:</span></li>
+        <li><a href="/provider/gen_token">Gen. Token</a></li>
+        <li><a href="/provider/key_retrieval?totalOTs=10">Batch Store</a></li>
+        <li><a href="/provider/status">Status</a></li>
+    </ul>
+</nav>
+<hr />
+<section class="content">
+    <header>
+        {% block header %}{% endblock %}
+    </header>
+    {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+</section>
