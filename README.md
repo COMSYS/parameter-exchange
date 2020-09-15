@@ -58,22 +58,13 @@ After the setup we describe how to execute the platform and the evaluation scrip
 
 Further information about the evaluation can be found in `Eval.md` and information about the datasets in `Datasets.md`.
 
-## Library Versions:
-
-- LibOTe: Commit `0d9a2afba26cd5a0359268292bc7902448c3ef6d`
-- LibPSI: Commit `6082b1310ef0ee9004d10bea24f96e4c615f6eeb`
-- CryptoTools: Commit `572763dc3feda7e73ea04e88e3f9ae63e6c10f05`
-- Wolfssl: Commit `d1397656ef4be39829fafd90bbc07e7aa447d600`
-
-
 ## 1. Direct Setup
 
 1. Checkout Repository with `git clone --recursive` to also clone the
 submodules/libraries (This project requires [libOTe](https://github.com/osu-crypto/libOTe), [libPSI](https://github.com/osu-crypto/libPSI), [cryptoTools](https://github.com/ladnir/cryptoTools) and
 [Wolfssl](https://www.wolfssl.com/))
 2. cd into `docker/`
-3. Run `sudo ./server-pre-setup.py` (This file contains the commands that are otherwise
- done by the Dockerfile)
+3. Run `sudo ./server-pre-setup.sh` (This file contains the commands that are otherwise executed by the Dockerfile)
 
     **Note:** You can run this script **without sudo**. However, then wolfssl
      is locally installed into your `$HOME` and you have to make sure that
@@ -136,6 +127,34 @@ submodules/libraries (This project requires [libOTe](https://github.com/osu-cryp
 5. You can start the container via `docker start pppe_full` and attach via
 `docker attach pppe_full`. If you want to open a new bash, use: `docker exec -it pppe_full bash`.
 6. The Cython code has still to be compiled because the directory is only accessible after first start of the container. See *Modifications* below for a manual how to do this.
+
+## Library Versions:
+
+- LibOTe: Commit `0d9a2afba26cd5a0359268292bc7902448c3ef6d`
+
+        git submodule add https://github.com/osu-crypto/libOTe.git libraries/libOTe
+        cd libraries/libOTe
+        git checkout 0d9a2afba26cd5a0359268292bc7902448c3ef6d
+
+- LibPSI: Commit `6082b1310ef0ee9004d10bea24f96e4c615f6eeb`
+
+        git submodule add https://github.com/osu-crypto/libPSI.git libraries/libPSI
+        cd libraries/libPSI
+        git checkout 6082b1310ef0ee9004d10bea24f96e4c615f6eeb
+
+- CryptoTools: Commit `572763dc3feda7e73ea04e88e3f9ae63e6c10f05`
+
+        cd libraries/libOTe/
+        git submodule init cryptoTools
+        cd cryptoTools
+        git submodule update
+        git checkout 572763dc3feda7e73ea04e88e3f9ae63e6c10f05 # for manual setup only
+
+- Wolfssl Commit `d1397656ef4be39829fafd90bbc07e7aa447d600`
+
+        git submodule add https://github.com/wolfSSL/wolfssl.git docker/wolfssl
+        cd docker/wolfssl
+        git checkout d1397656ef4be39829fafd90bbc07e7aa447d600
 
 ## Library Adaptions
 
