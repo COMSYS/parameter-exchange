@@ -2,9 +2,11 @@
 
 ## Overview
 
-This repository contains two real-world datasets that can be used for the evaluation of our implementation.
-First, a dataset containing injection molding data for the production of toy bricks and second, a dataset composed of machine tool parameters.
-In the directory `src/tools` we provide scripts that translate the original datasets into the format required by our implementation.
+This repository contains two real-world datasets that can be used for the evaluation of our implementation:
+1. A dataset containing injection molding data for the production of toy bricks.
+2. A dataset composed of machine tool parameters.
+
+In the directory `src/tools`, we provide scripts that translate the original datasets into the format required by our implementation.
 
 ## Injection Molding
 
@@ -50,8 +52,8 @@ This yields 4620 records in total.
 
 **Description:**
 The dataset consists of 600 records, each being composed of 17 input and 2 output parameters.
-The input parameters define machine configuration values, while the output parameters define cutting conditions of the milling cutter (Cutting speed (vc) and feed per tooth (fz)).
-Some input parameters represent doubles, while other represent textual parameters such as machine types.
+The input parameters define machine configuration values, while the output parameters define the cutting conditions of the milling cutter (Cutting speed (vc) and feed per tooth (fz)).
+Some input parameters represent doubles, while others represent textual parameters such as machine types.
 These are mapped to integers, as our system can only handle numbers.
 Therefore, each converted records only consists of numbers.
 The same textual value is mapped to the same integer.

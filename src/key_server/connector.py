@@ -179,7 +179,7 @@ def execute_ot(self: Task, total_ots: int,
     log.info(f"Celery offering {total_ots} OTs on port {port}.")
     # Define time limit to kill task if it runs for too long, because the
     # python code has no access.
-    self.time_limit = 60 + 10 * total_ots  # 10s per OT and 60s Initialization
+    self.time_limit = 3600
     self.update_state(state='STARTED')
     get_keyserver_backend().offer_ot(total_ots, port)
     self.update_state(state='SUCCESS')

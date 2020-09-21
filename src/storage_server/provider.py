@@ -8,7 +8,7 @@ E-mail: buchholz@comsys.rwth-aachen.de
 """
 import logging
 
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, render_template
 from flask_httpauth import HTTPBasicAuth
 
 from lib.base_client import UserType
@@ -89,6 +89,11 @@ def store_record() -> None:
         'msg': None
     })
 
+
+@bp.route('/store_interface')
+@provider_auth.login_required
+def store_interface() -> None:
+    return render_template('store.html')
 
 @bp.route('/batch_store_records', methods=['POST'])
 @provider_auth.login_required

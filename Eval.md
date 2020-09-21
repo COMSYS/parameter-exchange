@@ -1,6 +1,6 @@
 # Evaluations
 
-## Bloom Eval
+## Bloom Filter Eval
 
 **ID**|**Name**|**Rounds**|**Capacity**|**Error Rate**|**# Inserted Values**|**# Queries Values**|**Filename**
 :-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:

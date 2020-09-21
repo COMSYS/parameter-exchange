@@ -16,7 +16,8 @@ from lib.logging import configure_root_loger
 
 # Configure logging
 # configure_root_loger(config.LOGLEVEL)
-celery_app = Celery(__name__, broker=config.STORAGE_CELERY_BROKER_URL)
+celery_app = Celery(__name__, broker=config.STORAGE_CELERY_BROKER_URL,
+                    backend=config.STORAGE_CELERY_BROKER_URL)
 
 
 def create_app(test_config=None, logging_level=config.LOGLEVEL,
@@ -38,7 +39,7 @@ def create_app(test_config=None, logging_level=config.LOGLEVEL,
         PSI_TLS=config.PSI_TLS,
         RANDOMIZE_PORTS=config.RANDOMIZE_PORTS,
         SQLALCHEMY_DATABASE_URI=f"sqlite:///{data_dir}/{config.STORAGE_DB}",
-        SQLALCHEMY_TRACK_MODIFICATIONS=False
+        SQLALCHEMY_TRACK_MODIFICATIONS=False,
     )
 
     if test_config is not None:

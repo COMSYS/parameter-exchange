@@ -2,7 +2,7 @@
 
 ## About
 
-This repository contains our fully tested prototype of BPE & PPE, our implementations that offer Privacy-Preserving Production Process Parameter Exchanges (in industrial settings).
+This repository contains our fully-tested prototype of BPE & PPE, our implementations that offer Privacy-Preserving Production Process Parameter Exchanges (in industrial settings).
 
 > Nowadays, collaborations between industrial companies always go hand in hand with trust issues, i.e., exchanging valuable production data entails the risk of improper use of potentially sensitive information. Therefore, companies hesitate to offer their production data, e.g., process parameters that would allow other companies to establish new production lines faster, against a quid pro quo. Nevertheless, the expected benefits of industrial collaboration, data exchanges, and the utilization of external knowledge are significant.
 >
@@ -10,7 +10,7 @@ This repository contains our fully tested prototype of BPE & PPE, our implementa
 
 ## Publication
 
-* Jan Pennekamp, Erik Buchholz, Yannik Lockner, Markus Dahlmanns, Tiandong Xi, Marcel Fey, Christian Brecher, Christian Hopmann and Klaus Wehrle: *Privacy-Preserving Production Process Parameter Exchange*. In Proceedings of the 36th Annual Computer Security Applications Conference (ACSAC '20), ACM, 2020.
+* Jan Pennekamp, Erik Buchholz, Yannik Lockner, Markus Dahlmanns, Tiandong Xi, Marcel Fey, Christian Brecher, Christian Hopmann, and Klaus Wehrle: *Privacy-Preserving Production Process Parameter Exchange*. In Proceedings of the 36th Annual Computer Security Applications Conference (ACSAC '20), ACM, 2020.
 
 If you use any portion of our work, please cite our publication.
 
@@ -49,18 +49,18 @@ We provide three ways to set up the environment that is required to run the code
 
 1. **Direct setup** on a server running Linux or macOS
 2. **Partial Docker Container:** A Docker container that uses the libraries as submodules (allows for faster building and does not require to compile the libraries every time the container is created)
-3. **Full Docker Container:** A Docker container realising the entire setup including compilation of all libraries
+3. **Full Docker Container:** A Docker container realizing the entire setup, including the compilation of all libraries
 
-The setup has been tested on macOS Catalina, Ubuntu 18.04 and with Docker.
+The setup has been tested on macOS Catalina, Ubuntu 18.04, and Docker.
 We do not guarantee that this setup works for any other operating system.
 
-After the setup we describe how to execute the platform and the evaluation scripts.
+After the setup, we describe how to execute the platform and the evaluation scripts.
 
 Further information about the evaluation can be found in `Eval.md` and information about the datasets in `Datasets.md`.
 
 ## 1. Direct Setup
 
-1. Checkout Repository with `git clone --recursive` to also clone the
+1. Checkout Repository with `git clone --recursive git@github.com:COMSYS/parameter-exchange.git` to also clone the
 submodules/libraries (This project requires [libOTe](https://github.com/osu-crypto/libOTe), [libPSI](https://github.com/osu-crypto/libPSI), [cryptoTools](https://github.com/ladnir/cryptoTools) and
 [Wolfssl](https://www.wolfssl.com/))
 2. cd into `docker/`
@@ -89,7 +89,7 @@ submodules/libraries (This project requires [libOTe](https://github.com/osu-cryp
 via Dockerfile) [You can change the container and image name in this file, default is *(erikb/)ma*]
 
     **Note:** Building the container might fail at the pip install command.
-    This is caused by problems with the internet connection. Just try to create
+    This issue is caused by problems with the internet connection. Just try to create
     the container again, the build process will resume at the previous point.
 
 5. You can start the container via `docker start ma` and attach via
@@ -99,12 +99,12 @@ via Dockerfile) [You can change the container and image name in this file, defau
 7. Execute `./setup.sh` within the container.
 
    	 **Note:** The setup just needs to be executed once after cloning the repo
-   	 (or after making any update to the libOTe, libPSI or wolfssl libraries).
+   	 (or after making any update to the libOTe, libPSI, or wolfssl libraries).
    	 It takes **very long** and does not need to be executed in case only the
    	 docker container has to be rebuilt due to whatever reason. For instance,
    	 you can once build the docker container manually and perform the setup, and
    	 then create another docker container (with another name) for your IDE
-   	 without the need to execute the setup again. This is particularly
+   	 without the need to execute the setup again. This approach is particularly
    	 useful if your IDE builds the container itself.
 
    	 **Note:** You can adapt the variable `NUM_THREADS` in `setup.sh` to
@@ -126,7 +126,7 @@ submodules/libraries (This project requires [libOTe](https://github.com/osu-cryp
 4. Execute `create_container.sh` [You can change the container and image name in this file, default is *(erikb/)pppe_full* for *Privacy-Preserving Parameter Exchange*]
 5. You can start the container via `docker start pppe_full` and attach via
 `docker attach pppe_full`. If you want to open a new bash, use: `docker exec -it pppe_full bash`.
-6. The Cython code has still to be compiled because the directory is only accessible after first start of the container. See *Modifications* below for a manual how to do this.
+6. The Cython code has still to be compiled because the directory is only accessible after the first start of the container. See *Modifications* below for a manual on how to do this.
 
 ## Library Versions:
 
@@ -156,12 +156,19 @@ submodules/libraries (This project requires [libOTe](https://github.com/osu-cryp
         cd docker/wolfssl
         git checkout d1397656ef4be39829fafd90bbc07e7aa447d600
 
+## System Requirements
+
+We do not require any specific hardware or software apart from the needs introduced by our utilized libraries (i.e., a current Linux or MacOS system).
+In general, our design is detached from the specific hardware and can be configured accordingly, for example, to require less memory (e.g., by reducing the number of OTs).
+For our measurements, we noticed a maximum memory consumption of 42 GiB, however, most evaluations required significantly less.
+In a real-world deployment, the different entities would run on different devices and, thus, require less memory on a single machine.
+
 ## Library Adaptions
 
 *All those changes are done by the setup script, so do not worry about it
 , in case you build everything as described above.*
 
-To be able to use the libraries with Cython, we have to to make some changes. Mainly, we have to create position-independent code by using the gcc option `-fPIC` and we have to add the correct Wolfssl paths to the linker.
+To be able to use the libraries with Cython, we have to make some changes. Mainly, we have to create position-independent code by using the gcc option `-fPIC` and we have to add the correct Wolfssl paths to the linker.
 
 0. **_WOLFSSL_**
 Wolfssl needs to be configured before compilation with some flags.
@@ -200,17 +207,13 @@ We need to add `-fPIC` to the libPSI compilation as well.
 		echo 'set(CMAKE_CXX_FLAGS "-fPIC ${CMAKE_CXX_FLAGS}")' >> libPSI/CMakeLists.txt
 
 4. **_Wolfssl -  Optional_**
-In case you installed wolfssl to another location than `/usr/local` you need to
-adapt the include and linker paths accordingly. In case you installed WOLFSSL
-into `$HOME` by using `./configure --prefix=$HOME` you have to do the following
-adaptions:
-In case of macOS you have to replace `libwolfssl.so` by `libwolfssl.dylib` in
-the following.
+In case you installed wolfssl to another location than `/usr/local`, you need to adapt the include and linker paths accordingly. In case you installed WOLFSSL into `$HOME` by using `./configure --prefix=$HOME` you have to do the following adaptions:
+For macOS, you have to replace `libwolfssl.so` by `libwolfssl.dylib` in the following.
 
 	1. libOTe
 
 			cd libraries/libOTe
-			# WOLFSSL has been installed into home, hence we have to adapt the paths.
+			# WOLFSSL has been installed into your home directory. Hence, we have to adapt the paths.
 	    	sed -i -- "s|WolfSSL_DIR \"/usr/local/\"|WolfSSL_DIR \"$HOME/\"|g" cryptoTools/cryptoTools/CMakeLists.txt
 	    	sed -i -- 's|find_library(WOLFSSL_LIB NAMES wolfssl  HINTS "${WolfSSL_DIR}")|set\(WOLFSSL_LIB "\${WolfSSL_DIR}lib/libwolfssl.so"\)|g' cryptoTools/cryptoTools/CMakeLists.txt
 	    	LD_LIBRARY_PATH="${HOME}/lib:${LD_LIBRARY_PATH}"
@@ -224,6 +227,14 @@ the following.
 			sed -i -- "s|find_library(WOLFSSL_LIB NAMES wolfssl  HINTS \"\${WolfSSL_DIR}\")|set\(WOLFSSL_LIB \"\${WolfSSL_DIR}lib/${WOLFSSL_FILENAME}\"\)|g" libPSI/CMakeLists.txt
 
 ## Known Issues
+
+### Autoreconf: command not found
+
+This error indicates that the respective tool is not installed.
+Please make sure to install it and run the setup again.
+
+	brew install automake # MacOS
+	apt install autoconf # Linux
 
 ### Linking Error for libOTe Code
 
@@ -239,12 +250,11 @@ If you get a linker error, you might need to rebuild miracl.
 
 ### Internal Compiler error building libraries
 
-This happens sometimes if make uses too many threads. Set `$NUM_THREADS`
-(line 6) in `libraries/build_libraries.sh` to a small value, e.g., 3.
+This error occurs sometimes if make uses too many threads. Set `$NUM_THREADS` (line 6) in `libraries/build_libraries.sh` to a small value, e.g., 3.
 
 ## Testing
 
-After successful setup, the platform can be executed.
+After a successful setup, the platform can be executed.
 
 ### Unittests
 
@@ -263,7 +273,7 @@ These tests are automatically executed at the end of the setup.
 ## Modifications
 
 **src/Python:**
-Modifications of the Python code in `src/` do not require re-compilation. Just check that the unittests are still running successfully.
+Modifications of the Python code in `src/` do not require re-compilation. Just check that the unit tests are still running successfully.
 
 **Cython:**
 After any modification of the libraries or the Cython code, the Cython shared library has to be re-compiled.
@@ -273,7 +283,7 @@ After any modification of the libraries or the Cython code, the Cython shared li
 	make -j
 
 **Libraries:**
-After modification of the libraries (e.g., updates) these have to be re-compiled, as well as the Cython library (see above).
+After modification of the libraries (e.g., updates), they have to be re-compiled, as well as the Cython library (see above).
 
 	cd libraries/
 	./build_libraries.sh
@@ -317,7 +327,7 @@ All scripts have to be started from within `src/`.
 
 #### Start via Script
 
-The first variant to start the server instances is using the script `allStart.sh`. This script creates a tmux session *Server* that contains Redis and both key and storage server along the corresponding celery instances.
+The first variant to start the server instances is using the script `allStart.sh`. This script creates a tmux session *Server* that contains Redis and both key and storage server along with the corresponding celery instances.
 
 #### Start  Manually
 
@@ -343,6 +353,8 @@ The first variant to start the server instances is using the script `allStart.sh
 		./startStorageServer.sh
 
 The web interface of the key server is reachable at `https://localhost:5000/` and the one of the storage server at `https://localhost:5001/`.
+Additional information on the web interface is listed in `WebInterface.md`.
+However, it is mostly designed to give an overview and to ease testing.
 
 ### Data Provider Application
 *Servers must be running*
@@ -357,7 +369,7 @@ The web interface of the key server is reachable at `https://localhost:5000/` an
 
 			python3 data_provider.py USERNAME PASSWORD --add '[1,2,3,4,5]'
 
-2. Upload records from file (each line must contain a single records, refer to `data/wzl_data.txt` for an example.
+2. Upload records from file (each line must contain a single records, refer to `data/wzl_data.txt` for an example).
 
 			python3 data_provider.py USERNAME PASSWORD -f FILEPATH
 
@@ -387,31 +399,31 @@ An overview of all performed evaluations is provided in `Eval.md`.
 The datasets are explained in `Datasets.md`.
 
 **All evaluation scripts need to be started from `src/` with the command `python3 -m eval.NAME OPTIONS`.
-The server instances DO NOT need to be running, if needed these are started automatically.**
+The server instances DO NOT need to be running, if needed, they are started automatically.**
 
-All eval scripts provide a usage manual with the command line option `--help`.
+All eval scripts provide a user manual with the command line option `--help`.
 
 		python3 -m eval.script --help
 
 All evals are written to `eval/`. Accordingly, all filenames are relative to this base directory.
 
-### Bloom Eval
+### Bloom Filter Eval
 
 		python3 -m eval.bloom_eval OPTIONS -o FILENAME -r REPETITIONS
 
 **Options:**
 
-- `--capacity (-c) CONSTANT or MIN MAX STEP`: Capacities to consider. Either one value (constant) or three values (min, max, step).
-- `--insert (-i) CONSTANT or MIN MAX STEP`: Number of elements to insert. Either one value (constant) or three values (min, max, step).
-- `--query (-q) CONSTANT or MIN MAX STEP`: Number of elements to query. Either one value (constant) or three values (min, max, step).
-- `--error (-e) CONSTANT or MIN MAX STEP`: FP rates. Either one value (constant) or three values (min, max, step).
+- `--capacity (-c) CONSTANT or MIN MAX STEP`: Capacities to consider. Either one value (constant) or three values (min, max, stepsize).
+- `--insert (-i) CONSTANT or MIN MAX STEP`: Number of elements to insert. Either one value (constant) or three values (min, max, stepsize).
+- `--query (-q) CONSTANT or MIN MAX STEP`: Number of elements to query. Either one value (constant) or three values (min, max, stepsize).
+- `--error (-e) CONSTANT or MIN MAX STEP`: FP rates. Either one value (constant) or three values (min, max, stepsize).
 - `--fill`: Fill each Bloom filter to max capacity, i.e., ignore insert values.
 
 **Examples:**
 
-		ID 1: python3 -m eval.bloom_eval -q 100000000 --error 0.00000000000000000001 -c 0 1000000000  100000000 -o butthead_bloom_cap -r 10 --full
+		ID 1: python3 -m eval.bloom_eval -q 100000000 --error 0.00000000000000000001 -c 0 1000000000 100000000 -o butthead_bloom_cap -r 10 --fill
 
-		ID 2: python3 -m eval.bloom_eval -q 100000000 -c 100000000 -o butthead_bloom_fp -r 10 --full
+		ID 2: python3 -m eval.bloom_eval -q 100000000 -c 100000000 -o butthead_bloom_fp -r 10 --fill
 
 ### OT Eval
 
@@ -419,14 +431,14 @@ All evals are written to `eval/`. Accordingly, all filenames are relative to thi
 
 **Options:**
 
-- `--tls (-t) {0,1}`: Activate (1) or Deactivate (0) TLS
-- `--setsize (-s) CONSTANT or MIN MAX STEP`: OT set size. Either one value (constant) or three values (min, max, step).
-- `--numOTs (-n) CONSTANT or MIN MAX STEP`: Number of OT extensions to perform. Either one value (constant) or three values (min, max, step).
+- `--tls (-t) {0,1}`: Activate (1) or Deactivate (0) TLS.
+- `--setsize (-s) CONSTANT or MIN MAX STEP`: OT set size. Either one value (constant) or three values (min, max, stepsize).
+- `--numOTs (-n) CONSTANT or MIN MAX STEP`: Number of OT extensions to perform. Either one value (constant) or three values (min, max, stepsize).
 - `--malicious (-m)`: Use OOS16 instead of KKRT16.
-- `--latency (-l) CONSTANT or MIN MAX STEP`: Latency to add. Only on Linux. Either one value (constant) or three values (min, max, step).
+- `--latency (-l) CONSTANT or MIN MAX STEP`: Latency to add. Only on Linux. Either one value (constant) or three values (min, max, stepsize).
 - `--bandwidth (-b)`: Limit bandwidth to 6Mbit/s, 50Mbit/s, and 100Mbit/s? Only on Linux.
 - `--baseline`: Transmit 76Bit instead of 128Bit.
-- `--statsecparam CONSTANT or MIN MAX STEP`: Statistical Security Parameter. Either one value (constant) or three values (min, max, step).
+- `--statsecparam CONSTANT or MIN MAX STEP`: Statistical Security Parameter. Either one value (constant) or three values (min, max, stepsize).
 
 **Examples:**
 
@@ -440,13 +452,13 @@ All evals are written to `eval/`. Accordingly, all filenames are relative to thi
 
 **Options:**
 
-- `--tls (-t) {0,1}`: Activate (1) or Deactivate (0) TLS
-- `--setsize (-s) CONSTANT or MIN MAX STEP`: PSI set size. Either one value (constant) or three values (min, max, step).
+- `--tls (-t) {0,1}`: Activate (1) or Deactivate (0) TLS.
+- `--setsize (-s) CONSTANT or MIN MAX STEP`: PSI set size. Either one value (constant) or three values (min, max, stepsize).
 - `--malicious (-m)`: Use RR16 instead of KKRT16.
 - `--rr17`: Use RR17 instead of KKRT16. Broken for set sizes > 1000.
-- `--latency (-l) CONSTANT or MIN MAX STEP`: Latency to add. Only on Linux. Either one value (constant) or three values (min, max, step).
+- `--latency (-l) CONSTANT or MIN MAX STEP`: Latency to add. Only on Linux. Either one value (constant) or three values (min, max, stepsize).
 - `--bandwidth (-b)`: Limit bandwidth to 6Mbit/s, 50Mbit/s, and 100Mbit/s? Only on Linux.
-- `--statsecparam CONSTANT or MIN MAX STEP`: Statistical Security Parameter. Either one value (constant) or three values (min, max, step).
+- `--statsecparam CONSTANT or MIN MAX STEP`: Statistical Security Parameter. Either one value (constant) or three values (min, max, stepsize).
 
 **Examples:**
 
@@ -460,7 +472,7 @@ All evals are written to `eval/`. Accordingly, all filenames are relative to thi
 
 **Options:**
 
-- `--id1` - `--id12`: Perform Eval with corresponding ID
+- `--id1` - `--id12`: Perform Eval with corresponding ID.
 
 **Examples:**
 
@@ -472,13 +484,13 @@ All evals are written to `eval/`. Accordingly, all filenames are relative to thi
 
 **Options:**
 
-- `--metric (-m) METRIC`: Name of similarity metric to use
-- `--num (-n) NUMBER`: Number of matches to produce
-- `--psi (-p)`: Also evaluate PPE design variant
-- `--random`: Use random data
-- `--ikv`: Use IKV data
-- `--wzl1`: Use WZL Data and metric MT-Material
-- `--wzl2`: Use WZL Data and metric MT-Diameter
+- `--metric (-m) METRIC`: Name of similarity metric to use.
+- `--num (-n) NUMBER or MIN MAX STEP`: Number of matches to produce. Either one value (number) or three values (min, max, stepsize).
+- `--psi (-p)`: Also evaluate PPE design variant.
+- `--random`: Use random data.
+- `--ikv`: Use IKV data.
+- `--wzl1`: Use WZL Data and metric MT-Material.
+- `--wzl2`: Use WZL Data and metric MT-Diameter.
 
 **Examples:**
 
@@ -496,11 +508,11 @@ All evals are written to `eval/`. Accordingly, all filenames are relative to thi
 
 **Options:**
 
-- `--uploads`: Eval ID 1
-- `--rec_len`: Eval ID 2
-- `--ikv1`: Eval ID 3a
-- `--ikv2`: Eval ID 3b
-- `--wzl`: Eval ID 4
+- `--uploads`: Eval ID 1.
+- `--rec_len`: Eval ID 2.
+- `--ikv1`: Eval ID 3a.
+- `--ikv2`: Eval ID 3b.
+- `--wzl`: Eval ID 4.
 
 **Examples:**
 
