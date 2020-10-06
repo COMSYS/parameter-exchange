@@ -22,8 +22,15 @@ If you use any portion of our work, please cite our publication.
     year = {2020},
     month = {12},
     publisher = {ACM},
+    doi = {10.1145/3427228.3427248}
 }
 ```
+
+## Artifact Evaluation
+
+This artifact was submitted to the ACSAC 2020 [Artifacts Evaluation](https://www.acsac.org/2020/submissions/papers/artifacts/) and was evaluated as [functional](https://www.acsac.org/2020/program/artifacts/).
+
+> The artifacts associated with the research are found to be documented, consistent, complete, exercisable, and include appropriate evidence of verification and validation.
 
 ## License
 
